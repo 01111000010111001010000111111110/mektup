@@ -5,8 +5,6 @@
   --ink:rgba(20,18,16,.92);
   --muted:rgba(20,18,16,.60);
   --line:rgba(20,18,16,.12);
-  --rose:rgba(170,88,110,.85);
-  --shadow:rgba(20,18,16,.18);
   --r:22px;
 }
 
@@ -21,6 +19,7 @@ body{
   overflow-x:hidden;
 }
 
+/* background */
 .bg{
   position:fixed;
   inset:0;
@@ -42,21 +41,16 @@ body{
   mix-blend-mode: soft-light;
 }
 
-#sparkles{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-}
-
-/* gate */
+/* gate overlay */
 .gate{
   position:fixed;
   inset:0;
-  z-index:9999;
+  z-index:2147483647; /* EN ÜST */
   display:grid;
   place-items:center;
   background: rgba(20,18,16,.38);
   backdrop-filter: blur(12px);
+  pointer-events:auto;
 }
 .gate__card{
   width: min(440px, calc(100% - 28px));
@@ -68,8 +62,10 @@ body{
   text-align:center;
   transform: translateY(8px) scale(.98);
   animation: pop .7s cubic-bezier(.16,1,.3,1) forwards;
+  pointer-events:auto;
 }
 @keyframes pop{ to{ transform: translateY(0) scale(1); } }
+
 .gate__icon{
   width: 56px; height: 56px;
   display:grid; place-items:center;
@@ -82,6 +78,7 @@ body{
 .gate h2{ margin: 8px 0 6px; font-size: 22px; }
 .gate p{ margin: 0 0 10px; color: rgba(20,18,16,.74); }
 .gate small{ color: rgba(20,18,16,.55); }
+
 .gate__btn{
   margin: 10px 0 8px;
   width: 100%;
@@ -94,6 +91,7 @@ body{
   font-size: 14px;
   box-shadow: 0 18px 58px rgba(20,18,16,.14);
   transition: transform .12s ease, box-shadow .12s ease;
+  pointer-events:auto;
 }
 .gate__btn:hover{
   transform: translateY(-1px);
@@ -114,6 +112,7 @@ body{
   background: rgba(247,239,232,.72);
   backdrop-filter: blur(12px);
 }
+
 .top-left, .top-right{
   display:flex;
   align-items:center;
@@ -122,6 +121,7 @@ body{
   font-size:13px;
   color: var(--muted);
 }
+
 .pill{
   padding:7px 10px;
   border-radius:999px;
@@ -129,18 +129,21 @@ body{
   background: rgba(255,255,255,.60);
   color: rgba(20,18,16,.78);
 }
+
 .dot{ opacity:.5; }
+
 .date{
   font-weight: 650;
   color: rgba(20,18,16,.74);
 }
+
 .wrap{
   max-width: 980px;
   margin: 0 auto;
   padding: 18px 18px 90px;
 }
 
-/* cover is now compact */
+/* cover compact */
 .cover{ padding: 14px 0 16px; }
 
 .cover-card{
@@ -175,12 +178,14 @@ body{
   box-shadow: 0 18px 70px rgba(20,18,16,.12);
   margin-bottom: 10px;
 }
+
 .cover-card h1{
   position:relative;
   margin: 0 0 8px;
   font-size: 40px;
   letter-spacing: .2px;
 }
+
 .subtitle{
   position:relative;
   margin: 0 0 12px;
@@ -189,6 +194,7 @@ body{
   color: rgba(20,18,16,.82);
   max-width: 66ch;
 }
+
 .cover-actions{ position:relative; display:flex; gap:10px; }
 
 .btn{
@@ -209,6 +215,7 @@ body{
   transform: translateY(-1px);
   box-shadow: 0 20px 64px rgba(20,18,16,.14);
 }
+
 .fineprint{
   position:relative;
   margin: 10px 0 0;
@@ -222,12 +229,13 @@ body{
   position:relative;
   border-radius: var(--r);
   border: 1px solid rgba(20,18,16,.10);
-  background: var(--paper);
+  background: rgba(255,255,255,.84);
   box-shadow: 0 34px 190px rgba(20,18,16,.24);
   padding: 26px 22px 18px;
   backdrop-filter: blur(12px);
   overflow:hidden;
 }
+
 .paper__edge{
   position:absolute;
   inset:-2px;
@@ -239,6 +247,7 @@ body{
   mix-blend-mode: multiply;
   opacity: .9;
 }
+
 .paper-top{
   display:flex;
   justify-content:space-between;
@@ -246,8 +255,8 @@ body{
   flex-wrap:wrap;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   font-size: 13px;
-  position:relative;
 }
+
 .paper-title .label{
   display:inline-block;
   padding: 4px 9px;
@@ -262,28 +271,33 @@ body{
   font-weight: 750;
   letter-spacing: .1px;
 }
+
 .divider{
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(20,18,16,.16), transparent);
   margin: 16px 0 14px;
 }
+
 .salutation{
   margin: 4px 0 14px;
   font-size: 34px;
   letter-spacing: .2px;
 }
+
 .letter{
   font-size: 18px;
   line-height: 1.98;
   color: rgba(20,18,16,.86);
 }
 .letter p{ margin: 0 0 16px; }
+
 .quote{
   padding: 0 6px;
   border-radius: 10px;
   background: rgba(170,88,110,.08);
   border: 1px solid rgba(170,88,110,.14);
 }
+
 .closing{
   margin-top: 22px;
   padding-top: 12px;
@@ -291,6 +305,7 @@ body{
   font-weight: 750;
   color: rgba(20,18,16,.82);
 }
+
 .signature{ margin-top: 18px; padding-top: 12px; }
 .sig-line{ height: 1px; width: 180px; background: rgba(20,18,16,.28); margin-bottom: 10px; }
 .sig-name{ margin: 0; font-size: 18px; font-weight: 900; }
@@ -300,6 +315,7 @@ body{
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   font-size: 12.8px;
 }
+
 .paper-footer{
   margin-top: 14px;
   padding-top: 14px;
@@ -309,6 +325,7 @@ body{
   justify-content:space-between;
   gap: 10px;
 }
+
 .chip{
   appearance:none;
   border:1px solid rgba(20,18,16,.12);
