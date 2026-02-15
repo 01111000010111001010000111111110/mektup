@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bir Mektup</title>
+  <meta name="description" content="Benden Bana çalarken okunan bir mektup." />
+  <meta name="theme-color" content="#f3e9df" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="bg" aria-hidden="true"></div>
+  <canvas id="sparkles" aria-hidden="true"></canvas>
+
+  <!-- Autoplay helper overlay (only if needed) -->
+  <div id="gate" class="gate" hidden>
+    <div class="gate__card">
+      <div class="gate__icon">🎧</div>
+      <h2>Bir dokunuş…</h2>
+      <p>Müzik ve mektup aynı anda başlasın 🙂</p>
+      <button id="gateBtn" class="gate__btn" type="button">Başlat</button>
+      <small>(Tarayıcı bazen otomatik sesi engelliyor.)</small>
+    </div>
+  </div>
+
+  <header class="site-top" role="banner">
+    <div class="top-left">
+      <span class="pill">🎧 Benden Bana</span>
+      <span class="dot" aria-hidden="true">•</span>
+      <span class="muted">bizim şarkı</span>
+    </div>
+
+    <div class="top-right">
+      <span class="muted">Tarih</span>
+      <span class="date" id="today">—</span>
+      <button id="unmuteBtn" class="chip" type="button" aria-pressed="false" title="Sesi aç/kapat">
+        🔇 Sessiz
+      </button>
+    </div>
+  </header>
+
+  <main class="wrap" role="main">
+    <section class="cover" aria-label="Kapak">
+      <div class="cover-card">
+        <div class="stamp" aria-hidden="true">💐</div>
+        <h1>Bir Mektup</h1>
+        <p class="subtitle">
+          “Doğru yerde miyim?” diye sorulan bir cümle…
+          bazen günü güzelleştirmeye yetiyor.
+        </p>
+
+        <div class="cover-actions">
+          <a class="btn" href="#mektup">Mektubu Aç</a>
+        </div>
+
+        <p class="fineprint">
+          Müzik otomatik başlar; tarayıcı izin vermezse tek dokunuş ister. (Zarif çözüm 😄)
+        </p>
+      </div>
+    </section>
+
+    <article class="paper" id="mektup" aria-label="Mektup">
+      <div class="paper-top">
+        <div class="paper-title">
+          <span class="label">Kime:</span>
+          <span class="value">Zeynep</span>
+        </div>
+        <div class="paper-title">
+          <span class="label">Kimden:</span>
+          <span class="value">Levent</span>
+        </div>
+      </div>
+
+      <div class="divider" aria-hidden="true"></div>
+      <h2 class="salutation">Zeynep,</h2>
+
+      <section class="letter">
+        <p class="reveal">
+          Bugün konuşmalarımıza bir daha baktım. Şu sabah yazdığın ilk cümle var ya…
+          <span class="quote">“Doğru yerde miyim ki 🧐”</span>
+          ben o an cidden sevindim 🙂 “Evet” dedim ama içimden direkt “iyi ki” diye geçirdim.
+        </p>
+
+        <p class="reveal">
+          Sonra olaylar çok doğal aktı. “Aa sevindim”, “Nasılsın”, ben “iyiyim sen?”
+          Hani böyle kasıntı değil. Bu bana iyi geldi.
+          Bir de seni ekleme muhabbeti… “ben pek bilmiyorum” dedin ya 😄
+          normal yani, ben de her şeyi bilmiyorum zaten.
+        </p>
+
+        <p class="reveal">
+          Telefon konusu komikti biraz. Ben “telefonun gözüküyor istersen kapat” dedim,
+          sen <span class="quote">“Sorun değil”</span> dedin.
+          Ben de “o zaman ben de açayım” diye saçma bir adalet sistemi kurdum 😂
+          (Eşit olalım dedim ya… biraz benlik işte.)
+        </p>
+
+        <p class="reveal">
+          Sonra ben “mektup gibi uzun uzun yazasım geliyor” dedim.
+          Sen de “yazabilirsin” dedin.
+          Bir de üstüne <span class="quote">“En azından 35 dakika beklemem 😋”</span>…
+          ahaha. Vallahi en yorucusu oydu. Ben sabır sabır diye kendimi gazlıyordum resmen.
+        </p>
+
+        <p class="reveal">
+          Senin hoşuma giden bir şey var: ince düşünüyorsun.
+          <span class="quote">“Kalp kırmaktan korkuyorum”</span> dedin ya…
+          bunu söyleyen biri kolay kolay kırmaz bence.
+          Ben de o yüzden baştan beri sınırlarını aşmayayım diye ekstra dikkat ettim.
+        </p>
+
+        <p class="reveal">
+          Hemşireyim dediğinde içimden “tam Zeynep’e yakışır” dedim.
+          24 saat mesai… 8-8… çok ağır.
+          Ama sen “alıştım” dedin, üstüne bir de “güleryüzlüsün” diyorlar dedin.
+          Hiç şaşırmadım 🙂 gerçekten mesajdan bile belli oluyor.
+        </p>
+
+        <p class="reveal">
+          Satranç kısmı… bence günün en keyifli yeriydi.
+          piko005 – Chesscake ilk maçımızda “unutmuşum” dedin ama yine iyi oynadın.
+          Bir de <span class="quote">“Hırslandım Levent 😂😂”</span>…
+          ben orada koptum 😄
+        </p>
+
+        <p class="reveal">
+          Müzik konusu da ayrı bir “biz” oldu.
+          Sen <span class="quote">“Benden Bana”</span> dedin ya… yıllardır en üstte.
+          Ben de fark ettim: artık o şarkı çalınca aklıma sen geliyorsun.
+          Zorla değil, kendiliğinden oluyor. O yüzden güzel.
+        </p>
+
+        <p class="reveal">
+          Büyük laflara girmeyeyim.
+          Senin dediğin gibi: zaman gösterir.
+          Ama şunu net söyleyeyim; ben uzun zamandır biriyle bu kadar rahat konuşmamıştım.
+          Kuru gürültü değil… gerçekten sohbet.
+        </p>
+
+        <p class="closing reveal">
+          Ne zaman istersen yaz.
+          Ben buradayım.
+          Bir mesaj uzağındayım.
+        </p>
+
+        <div class="signature reveal">
+          <div class="sig-line" aria-hidden="true"></div>
+          <p class="sig-name">Levent 😊</p>
+          <p class="sig-note">PS: Tablet’e yükleyince bir el daha. ♟️</p>
+        </div>
+      </section>
+
+      <footer class="paper-footer">
+        <button class="chip" type="button" id="scrollTop">↑ Yukarı</button>
+        <span class="muted">GitHub Pages</span>
+      </footer>
+    </article>
+  </main>
+
+  <!-- Music (ROOT: loop.mp3) -->
+  <audio id="bgm" loop preload="auto" autoplay playsinline></audio>
+
+  <script>
+    // Tarih
+    const d = new Date();
+    const fmt = new Intl.DateTimeFormat('tr-TR', { day: '2-digit', month: 'long', year: 'numeric' });
+    document.getElementById('today').textContent = fmt.format(d);
+
+    // ✅ ROOT'TA: loop.mp3
+    const audio = document.getElementById('bgm');
+    audio.src = "loop.mp3";
+
+    const unmuteBtn = document.getElementById('unmuteBtn');
+    const gate = document.getElementById('gate');
+    const gateBtn = document.getElementById('gateBtn');
+
+    function setMuteUI(){
+      const muted = audio.muted || audio.volume === 0;
+      unmuteBtn.textContent = muted ? "🔇 Sessiz" : "🔊 Ses Açık";
+      unmuteBtn.setAttribute("aria-pressed", String(!muted));
+    }
+
+    async function tryAutoplayMuted(){
+      audio.muted = true;
+      audio.volume = 1.0;
+      try {
+        await audio.play();
+        setMuteUI();
+        return true;
+      } catch {
+        return false;
+      }
+    }
+
+    async function unmuteAndPlay(){
+      audio.muted = false;
+      try { await audio.play(); } catch {}
+      setMuteUI();
+    }
+
+    (async () => {
+      const ok = await tryAutoplayMuted();
+      if (!ok) gate.hidden = false;
+
+      const unlock = async () => {
+        await unmuteAndPlay();
+        gate.hidden = true;
+      };
+      window.addEventListener('pointerdown', unlock, { once: true });
+      window.addEventListener('keydown', unlock, { once: true });
+
+      setMuteUI();
+    })();
+
+    unmuteBtn.addEventListener('click', async () => {
+      if (audio.muted || audio.volume === 0) {
+        await unmuteAndPlay();
+      } else {
+        audio.muted = true;
+        setMuteUI();
+      }
+    });
+
+    gateBtn.addEventListener('click', async () => {
+      await unmuteAndPlay();
+      gate.hidden = true;
+    });
+
+    document.getElementById('scrollTop').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Reveal on scroll
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) if (e.isIntersecting) e.target.classList.add('in');
+    }, { threshold: 0.12 });
+    els.forEach(el => io.observe(el));
+
+    // Sparkles canvas
+    const canvas = document.getElementById('sparkles');
+    const ctx = canvas.getContext('2d');
+    let W, H, t = 0;
+
+    const sparks = Array.from({ length: 90 }, () => ({
+      x: Math.random(),
+      y: Math.random(),
+      r: Math.random() * 1.9 + 0.5,
+      s: Math.random() * 0.25 + 0.05,
+      p: Math.random() * Math.PI * 2
+    }));
+
+    function resize(){
+      W = canvas.width = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    function draw(){
+      t += 0.008;
+      ctx.clearRect(0, 0, W, H);
+
+      const g = ctx.createRadialGradient(W*0.2, H*0.15, 0, W*0.2, H*0.15, Math.min(W,H)*0.75);
+      g.addColorStop(0, 'rgba(146,76,96,0.10)');
+      g.addColorStop(1, 'rgba(146,76,96,0)');
+      ctx.fillStyle = g;
+      ctx.fillRect(0, 0, W, H);
+
+      for (const s of sparks){
+        const x = (s.x + Math.sin(t + s.p)*0.012) * W;
+        const y = (s.y + Math.cos(t*0.8 + s.p)*0.012) * H;
+        const a = 0.14 + 0.14*Math.sin(t*3 + s.p);
+
+        ctx.beginPath();
+        ctx.arc(x, y, s.r*(1+0.22*Math.sin(t*2+s.p)), 0, Math.PI*2);
+        ctx.fillStyle = `rgba(255,255,255,${a})`;
+        ctx.fill();
+
+        s.y -= s.s/1000;
+        if (s.y < -0.05) { s.y = 1.05; s.x = Math.random(); }
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  </script>
+</body>
+</html>
