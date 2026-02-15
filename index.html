@@ -12,11 +12,10 @@
 <body>
   <div class="bg" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
-  <canvas id="sparkles" aria-hidden="true"></canvas>
 
-  <!-- Autoplay gate: sadece müzik için. Basınca mektuba da götürür -->
+  <!-- Autoplay Gate: Sadece müzik izni için -->
   <div id="gate" class="gate" hidden>
-    <div class="gate__card">
+    <div class="gate__card" role="dialog" aria-modal="true" aria-label="Müzik başlatma penceresi">
       <div class="gate__icon" aria-hidden="true">🎧</div>
       <h2>Bir dokunuş…</h2>
       <p>Müzik ve mektup aynı anda başlasın 🙂</p>
@@ -42,7 +41,7 @@
   </header>
 
   <main class="wrap" role="main">
-    <!-- Kapak (küçük) -->
+    <!-- Kapak (kompakt) -->
     <section class="cover" aria-label="Kapak">
       <div class="cover-card">
         <div class="seal" aria-hidden="true"><span class="seal__inner">💐</span></div>
@@ -51,7 +50,6 @@
           “Doğru yerde miyim?” diye sorulan bir cümle… bazen günü güzelleştirmeye yetiyor.
         </p>
 
-        <!-- SADECE "Mektubu Aç" var -->
         <div class="cover-actions">
           <a class="btn" href="#mektup">Mektubu Aç</a>
         </div>
@@ -62,7 +60,7 @@
       </div>
     </section>
 
-    <!-- Mektup: artık sayfada hemen görünür olacak (CSS ile) -->
+    <!-- Mektup -->
     <article class="paper" id="mektup" aria-label="Mektup">
       <div class="paper__edge" aria-hidden="true"></div>
 
@@ -96,7 +94,7 @@
         <p class="reveal">
           Telefon ayarı olayı komikti. Ben “istersen kapatırsın” dedim, sen “sorun değil” dedin.
           Ben de “eşit olalım” diye saçma bir denge kurdum 😂
-          Normalde bu kadar takılmam ama… sende böyle küçük şeyler bile “anlam” kazanıyor.
+          Normalde bu kadar takılmam ama… sende küçük şeyler bile “anlam” kazanıyor.
         </p>
 
         <p class="reveal">
@@ -161,6 +159,7 @@
     </article>
   </main>
 
+  <!-- Müzik (ROOT) -->
   <audio id="bgm" loop preload="auto" autoplay playsinline></audio>
 
   <script>
@@ -207,11 +206,12 @@
       setMuteUI();
     }
 
+    // İlk açılış: sessiz autoplay dene. Olmazsa gate aç.
     (async () => {
       const ok = await tryAutoplayMuted();
       if (!ok) gate.hidden = false;
 
-      // İlk kullanıcı hareketi: mektuba götür + müziği açmayı dene
+      // Kullanıcı ilk etkileşimi: (gate açık olsa da olmasa da) mektuba git + ses açmayı dene
       const unlock = async () => {
         if (!gate.hidden) gate.hidden = true;
         goToLetter();
@@ -223,7 +223,7 @@
       setMuteUI();
     })();
 
-    // Gate button: kesin kapat + mektuba git + müziği açmayı dene
+    // Gate butonu: KESİN kapat + mektuba git + ses açmayı dene
     gateBtn.addEventListener('click', async (e) => {
       e.preventDefault();
       gate.hidden = true;
@@ -231,7 +231,7 @@
       await unmuteAndPlay();
     });
 
-    // Toggle
+    // Ses aç/kapat
     unmuteBtn.addEventListener('click', async () => {
       if (audio.muted || audio.volume === 0) {
         await unmuteAndPlay();
@@ -246,59 +246,12 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Reveal
+    // Reveal animasyonu
     const els = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver((entries) => {
       for (const e of entries) if (e.isIntersecting) e.target.classList.add('in');
     }, { threshold: 0.14 });
     els.forEach(el => io.observe(el));
-
-    // Sparkles
-    const canvas = document.getElementById('sparkles');
-    const ctx = canvas.getContext('2d');
-    let W, H, t = 0;
-
-    const sparks = Array.from({ length: 110 }, () => ({
-      x: Math.random(),
-      y: Math.random(),
-      r: Math.random() * 2.0 + 0.4,
-      s: Math.random() * 0.28 + 0.06,
-      p: Math.random() * Math.PI * 2
-    }));
-
-    function resize(){
-      W = canvas.width = window.innerWidth;
-      H = canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resize);
-    resize();
-
-    function draw(){
-      t += 0.008;
-      ctx.clearRect(0, 0, W, H);
-
-      const glow = ctx.createRadialGradient(W*0.18, H*0.12, 0, W*0.18, H*0.12, Math.min(W,H)*0.85);
-      glow.addColorStop(0, 'rgba(170,88,110,0.10)');
-      glow.addColorStop(1, 'rgba(170,88,110,0)');
-      ctx.fillStyle = glow;
-      ctx.fillRect(0, 0, W, H);
-
-      for (const s of sparks){
-        const x = (s.x + Math.sin(t + s.p)*0.012) * W;
-        const y = (s.y + Math.cos(t*0.85 + s.p)*0.012) * H;
-        const a = 0.10 + 0.18*Math.sin(t*3.2 + s.p);
-
-        ctx.beginPath();
-        ctx.arc(x, y, s.r*(1+0.25*Math.sin(t*2+s.p)), 0, Math.PI*2);
-        ctx.fillStyle = `rgba(255,255,255,${a})`;
-        ctx.fill();
-
-        s.y -= s.s/1000;
-        if (s.y < -0.06) { s.y = 1.06; s.x = Math.random(); }
-      }
-      requestAnimationFrame(draw);
-    }
-    draw();
   </script>
 </body>
 </html>
