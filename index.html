@@ -10,12 +10,11 @@
 </head>
 
 <body>
-  <!-- cinematic background -->
   <div class="bg" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
   <canvas id="sparkles" aria-hidden="true"></canvas>
 
-  <!-- gate (autoplay restriction helper) -->
+  <!-- Autoplay gate: sadece müzik için. Basınca mektuba da götürür -->
   <div id="gate" class="gate" hidden>
     <div class="gate__card">
       <div class="gate__icon" aria-hidden="true">🎧</div>
@@ -26,7 +25,6 @@
     </div>
   </div>
 
-  <!-- top bar -->
   <header class="site-top" role="banner">
     <div class="top-left">
       <span class="pill">💌 Bir Mektup</span>
@@ -44,48 +42,40 @@
   </header>
 
   <main class="wrap" role="main">
-    <!-- cover -->
+    <!-- Kapak (küçük) -->
     <section class="cover" aria-label="Kapak">
       <div class="cover-card">
-        <div class="seal" aria-hidden="true">
-          <span class="seal__inner">💐</span>
-        </div>
-
+        <div class="seal" aria-hidden="true"><span class="seal__inner">💐</span></div>
         <h1>Bir Mektup</h1>
-
         <p class="subtitle">
-          Bazı günler “doğru yerde miyim?” diye sorulan bir cümle,
-          insanın içini rahatlatmaya yetiyor.
+          “Doğru yerde miyim?” diye sorulan bir cümle… bazen günü güzelleştirmeye yetiyor.
         </p>
 
+        <!-- SADECE "Mektubu Aç" var -->
         <div class="cover-actions">
-          <a class="btn" id="openLetterBtn" href="#mektup">Mektubu Aç</a>
-          <button class="btn ghost" id="startBtn" type="button">Müzik + Başlat</button>
+          <a class="btn" href="#mektup">Mektubu Aç</a>
         </div>
 
         <p class="fineprint">
-          Not: Tarayıcı izin vermezse müzik için tek dokunuş ister. Mektup yine açılır 🙂
+          Müzik otomatik başlar; tarayıcı izin vermezse tek dokunuş ister 🙂
         </p>
       </div>
     </section>
 
-    <!-- letter -->
+    <!-- Mektup: artık sayfada hemen görünür olacak (CSS ile) -->
     <article class="paper" id="mektup" aria-label="Mektup">
       <div class="paper__edge" aria-hidden="true"></div>
 
       <div class="paper-top">
         <div class="paper-title">
-          <span class="label">Kime</span>
-          <span class="value">Zeynep</span>
+          <span class="label">Kime</span><span class="value">Zeynep</span>
         </div>
         <div class="paper-title">
-          <span class="label">Kimden</span>
-          <span class="value">Levent</span>
+          <span class="label">Kimden</span><span class="value">Levent</span>
         </div>
       </div>
 
       <div class="divider" aria-hidden="true"></div>
-
       <h2 class="salutation">Zeynep,</h2>
 
       <section class="letter">
@@ -94,104 +84,64 @@
           ben de öyle başladım… ama en başa gelince durdum.
           <span class="quote">“Doğru yerde miyim ki 🧐”</span> dediğin an,
           içimden direkt “evet” değil de “iyi ki” geçti.
-          Yazıyla bile o enerjiyi vermek kolay değil, sende var.
         </p>
 
         <p class="reveal">
           İlk dakikadan itibaren her şey doğal aktı. “Aa sevindim 🙂”, “Nasılsın”…
-          Benim de istediğim buydu zaten: kasmadan, eğip bükmeden.
-          Sonra seni ekleme muhabbeti başladı.
-          Sen <span class="quote">“ben pek bilmiyorum”</span> deyince,
-          ben de “tamam ben anlatırım” moduna girdim 😄
-          İtiraf edeyim; bir şey öğretmeyi seviyorum ama daha çok,
-          karşı tarafın “tamam anladım” deyişini seviyorum.
+          Kasılmadan, eğip bükmeden. Sonra seni ekleme muhabbeti…
+          <span class="quote">“ben pek bilmiyorum”</span> deyince anlatmaya başladım ya 😄
+          Benim hoşuma giden şey, senin böyle “tamam anladım” deyişin.
         </p>
 
         <p class="reveal">
-          Telefon ayarı konusunu hatırlıyor musun?
-          Ben “istersen kapatırsın” dedim, sen <span class="quote">“Sorun değil”</span> dedin.
+          Telefon ayarı olayı komikti. Ben “istersen kapatırsın” dedim, sen “sorun değil” dedin.
           Ben de “eşit olalım” diye saçma bir denge kurdum 😂
-          Normalde böyle detayları büyütmem ama… senin yanında
-          “adalet” diye küçük küçük şeyler tutturabiliyorum. Garip ama hoşuma gidiyor.
+          Normalde bu kadar takılmam ama… sende böyle küçük şeyler bile “anlam” kazanıyor.
         </p>
 
         <p class="reveal">
-          Mektup uygulamasındaki <span class="quote">35 dakika bekleme</span> olayı…
+          Bir de şu <span class="quote">35 dakika bekleme</span> mevzusu…
           Sen <span class="quote">“En azından 35 dakika beklemem 😋”</span> deyince
-          bir an kafamda o ekran canlandı. Vallahi en yorucusu oydu.
-          Ben kendimi “sabretmek iyidir” diye motive ediyordum resmen.
-          Şimdi iyi: bir mesaj uzağındayız. Bu bile insanı rahatlatıyor.
+          vallahi güldüm. Ben sabretmek iyidir diye kendimi motive ediyordum resmen.
+          Şimdi iyi: bir mesaj uzağındayız.
         </p>
 
         <p class="reveal">
-          Senin en sevdiğim taraflarından biri ince olman.
-          <span class="quote">“Kalp kırmaktan çok korkuyorum”</span> dedin ya…
-          Bunu söyleyen birinin kalp kırması çok zor bence.
-          Ben de o yüzden baştan beri sınırlarını aşmadan,
-          “rahatsız eder miyim?” demeden, ama aynı zamanda saklanmadan ilerlemek istedim.
-          İkisi aynı anda zor; ama sende mümkün gibi duruyor.
+          Senin ince tarafın var ya… en çok orası hoşuma gidiyor.
+          <span class="quote">“Kalp kırmaktan korkuyorum”</span> demen mesela.
+          Bunu söyleyen birinin kolay kolay kıracağını sanmıyorum.
+          Ben de o yüzden baştan beri sınırlarını aşmadan, ama samimiyeti de saklamadan ilerlemek istedim.
         </p>
 
         <p class="reveal">
-          Hemşireyim dediğinde içimden “tam Zeynep’e yakışır” dedim.
-          24 saat mesai… 8-8… kolay değil.
-          Üstüne bir de insanlarla uğraşmak var.
-          Ama sen “alıştım” dedin ve
-          “güleryüzlüsün” diyorlar dedin…
-          Ben buna hiç şaşırmadım. Mesajdan bile belli oluyor o tarafın 🙂
+          Hemşirelik… 24 saat mesai… kolay değil.
+          Ama sen “alıştım” dedin ve “güleryüzlüsün” diyorlar dedin.
+          Ben buna hiç şaşırmadım. Mesajdan bile belli oluyor o enerji 🙂
         </p>
 
         <p class="reveal">
-          Spor, maç, tenis kaosu falan… ben bunları anlatırken senin tepkilerin çok tatlıydı.
-          “Şımarık 😒” deyip net tavır koyman mesela…
-          Bu hoşuma gitti. Çünkü hayatta bazı şeylerde net olmak lazım.
-          Bir de “milli maçlar başka” dedin ya…
-          Ben de aynı yerden bakıyorum. Bazı şeyler gerçekten başka.
+          Şarkılar kısmı… sen <span class="quote">“Benden Bana”</span> deyince kafama yazıldı.
+          Şu an o şarkı çalınca aklıma sen geliyorsa, sebebi “yapay romantiklik” falan değil.
+          Bildiğin alışkanlık gibi… sessizce yerleşti.
         </p>
 
         <p class="reveal">
-          Sonra şarkılar… Ben “Süzülerek” dedim, sen “Gazapizm mi dinliyorsun?” diye güldün.
-          Ve sonra… <span class="quote">“Benden Bana”</span> dedin.
-          “Yıllardır listemin en üstünde” dedin.
-          O an kafama yazıldı. Şu an o şarkı çalınca aklıma sen geliyorsa,
-          bunun sebebi yapay bir romantiklik değil. Bildiğin alışkanlık gibi.
-          Sessizce yerleşti.
+          Satranç: piko005 – Chesscake 😄
+          İlk oyunda “unutmuşum” dedin ama bence temelin var.
+          Bir de <span class="quote">“Hırslandım Levent 😂😂”</span>…
+          ben orada cidden güldüm. Bu, “ben oyundan çıkmam” demek. Karakter işi.
         </p>
 
         <p class="reveal">
-          Satranç kısmı… piko005 – Chesscake 😄
-          İlk oyunda “unutmuşum” dedin ama bence temel var.
-          “Hamleleri yaptıktan sonra görüyorum riskleri” dedin ya…
-          işte o, zaten zihnin çalıştığını gösteriyor.
-          Bir de en vurucu cümle:
-          <span class="quote">“Hırslandım Levent 😂😂”</span>
-          Ben orada cidden güldüm. Çünkü o cümle “yenilirken bile oyundan çıkmam” demek.
-          Bu karakter işi.
-        </p>
-
-        <p class="reveal">
-          Benim açımdan özet şu: uzun zamandır biriyle böyle rahat konuşmamıştım.
+          Ben uzun zamandır biriyle böyle rahat konuşmamıştım.
           Kuru gürültü değil… gerçekten sohbet.
-          Senin “kuru gürültüyü sevmem” demen var ya… aynıyız.
-          O yüzden konuşurken yorulmuyorum.
-          Tam tersine, günün içinde küçük bir “iyi geldi” anı oluyor.
-        </p>
-
-        <p class="reveal">
-          Bir de şunu ekleyeyim:
-          Ben her şeyi “mükemmel” kurmaya çalışmıyorum.
-          Sadece gerçek hayatta nasılsam burada da öyle olmaya çalışıyorum.
-          Bunu da sen zaten fark etmişsin:
-          “Bazen yapay zekayla mı konuşuyorum?” demiştin 😄
-          İtiraf: mektup uygulamasında gramer düzeltmesi almıştım bir ara.
-          Ama sen “devam etse silerdim” deyince… ben de rahatladım.
-          Çünkü benim için değerli olan düzgün cümle değil,
-          senin “bu benim” diyebileceğin bir samimiyet.
+          Senin “kuru gürültüyü sevmem” demen var ya… aynı yerden bakıyoruz.
+          O yüzden konuşurken yorulmuyorum, tam tersine günün içinde “iyi geldi” oluyor.
         </p>
 
         <p class="closing reveal">
-          Neyse… uzatıyorum ben. Ama hani demiştim ya:
-          “Mektup gibi uzun uzun yazasım geliyor” 😄
+          Neyse… uzatıyorum ben 😄
+          Ama hani demiştim ya: “mektup gibi uzun uzun yazasım geliyor”.
           Ne zaman istersen yaz.
           Ben buradayım.
           Bir mesaj uzağındayım.
@@ -211,7 +161,6 @@
     </article>
   </main>
 
-  <!-- Music (ROOT) -->
   <audio id="bgm" loop preload="auto" autoplay playsinline></audio>
 
   <script>
@@ -220,14 +169,13 @@
     const fmt = new Intl.DateTimeFormat('tr-TR', { day: '2-digit', month: 'long', year: 'numeric' });
     document.getElementById('today').textContent = fmt.format(d);
 
-    // ROOT'TA mp3
+    // ROOT mp3
     const audio = document.getElementById('bgm');
     audio.src = "loop.mp3";
 
     const gate = document.getElementById('gate');
     const gateBtn = document.getElementById('gateBtn');
     const unmuteBtn = document.getElementById('unmuteBtn');
-    const startBtn = document.getElementById('startBtn');
 
     function setMuteUI(){
       const muted = audio.muted || audio.volume === 0;
@@ -259,39 +207,31 @@
       setMuteUI();
     }
 
-    // Init autoplay attempt
     (async () => {
       const ok = await tryAutoplayMuted();
       if (!ok) gate.hidden = false;
 
-      // İlk kullanıcı hareketi: kapıyı kapat, mektuba geç, sesi açmayı dene
+      // İlk kullanıcı hareketi: mektuba götür + müziği açmayı dene
       const unlock = async () => {
         if (!gate.hidden) gate.hidden = true;
         goToLetter();
         await unmuteAndPlay();
       };
-
       window.addEventListener('pointerdown', unlock, { once: true });
       window.addEventListener('keydown', unlock, { once: true });
 
       setMuteUI();
     })();
 
-    // Gate button: GARANTİ geçiş
+    // Gate button: kesin kapat + mektuba git + müziği açmayı dene
     gateBtn.addEventListener('click', async (e) => {
       e.preventDefault();
-      gate.hidden = true;     // 1) kapat
-      goToLetter();           // 2) mektuba kaydır
-      await unmuteAndPlay();  // 3) sesi açmayı dene
-    });
-
-    // Start button on cover
-    startBtn.addEventListener('click', async () => {
+      gate.hidden = true;
       goToLetter();
       await unmuteAndPlay();
     });
 
-    // Manual toggle
+    // Toggle
     unmuteBtn.addEventListener('click', async () => {
       if (audio.muted || audio.volume === 0) {
         await unmuteAndPlay();
@@ -301,19 +241,19 @@
       }
     });
 
-    // Scroll top
+    // Yukarı
     document.getElementById('scrollTop').addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Reveal paragraphs
+    // Reveal
     const els = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver((entries) => {
       for (const e of entries) if (e.isIntersecting) e.target.classList.add('in');
     }, { threshold: 0.14 });
     els.forEach(el => io.observe(el));
 
-    // Sparkles canvas
+    // Sparkles
     const canvas = document.getElementById('sparkles');
     const ctx = canvas.getContext('2d');
     let W, H, t = 0;
@@ -337,7 +277,6 @@
       t += 0.008;
       ctx.clearRect(0, 0, W, H);
 
-      // soft rose glow
       const glow = ctx.createRadialGradient(W*0.18, H*0.12, 0, W*0.18, H*0.12, Math.min(W,H)*0.85);
       glow.addColorStop(0, 'rgba(170,88,110,0.10)');
       glow.addColorStop(1, 'rgba(170,88,110,0)');
@@ -357,7 +296,6 @@
         s.y -= s.s/1000;
         if (s.y < -0.06) { s.y = 1.06; s.x = Math.random(); }
       }
-
       requestAnimationFrame(draw);
     }
     draw();
